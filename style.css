@@ -1,0 +1,51 @@
+ .border-box {
+  border: 2px solid #cccccc;
+  padding: 10px;
+  text-align:center;
+  width:100%;
+  padding: 20px;
+}
+
+.out-inner-box {
+  text-align:center;
+  width:100%;
+  display: flex;
+  clear: both;
+  justify-content: center;
+}
+
+.color-boxes, .inner-boxes {
+  border: 1px solid #e4e4e4;
+  background-color: #fff;
+
+}
+
+.inner-boxes {
+  width: 25px;
+  height: 25px;
+  float: left;
+}
+
+.color-boxes {
+  width: 50px;
+  height: 50px;
+  -moz-border-radius: 35px;
+  border-radius: 35px;
+  margin: 2px;
+  display: inline-block;
+  }
+
+.outer-color-div {
+  text-align:center;
+  width:100%;
+  margin: 20px;
+}
+
+.color-label {
+  display: block;
+  font-family: sans-serif;
+}
+
+input {
+  margin: 5px;
+}
