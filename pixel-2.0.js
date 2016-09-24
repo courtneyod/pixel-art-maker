@@ -16,7 +16,7 @@ window.onload = function() {
     setColorPallet('div', 'palletBoxes', pallet, '50px', '50px', 'click');
 
 
-    createColorLabel('input', "color-label");
+    createColorLabel('input', "color-label", 'input');
 
     /*Creates a section element*/
     function createContainer(element, className, parent) {
@@ -73,23 +73,28 @@ window.onload = function() {
           //  console.log(canvas);
       }
 
-        parent.addEventListener(eventName, function(event) {
-            if (event.target === event.currentTarget) {
-                return;
-            } else {
-                colorBrush = event.target.style.backgroundColor;
-            }
-        });
+        parent.addEventListener(eventName, setColorBrush);
     }
 
+    function setColorBrush(event) {
+        if (event.target === event.currentTarget) {
+        } else {
+            colorBrush = event.target.style.backgroundColor;
+        }
+    }
+
+
+
     /*Add an input element that lets the user pick their own color for the pixel boxes. */
-    function createColorLabel(eventName, className) {
-      var colorLabel = document.createElement(eventName);
+    function createColorLabel(elementName, className, eventName) {
+      var colorLabel = document.createElement(elementName);
       colorLabel.type = 'color';
       colorLabel.value = '#ffffff';
       colorLabel.classList.add(className);
       pallet.appendChild(colorLabel);
-
+      colorLabel.addEventListener(eventName, function(event){
+              colorBrush = event.target.value;
+        });
     }
 
     /*Creates an event listenter for when the mouse is down or up. if the mouse is down. It sets the color of the div to the paint color */
@@ -105,12 +110,12 @@ window.onload = function() {
 
     window.addEventListener('mousedown', function(event) {
         mouseDown = true;
-        console.log("yep mouse is down");
+      //  console.log("yep mouse is down");
     });
 
     window.addEventListener('mouseup', function(event) {
         mouseDown = false;
-        console.log("yep mouse is down");
+      //  console.log("yep mouse is down");
     });
 
 }
